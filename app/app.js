@@ -7,6 +7,11 @@
 			templateUrl:'app/signup/signup.html',
 			controller:'SignupController'
 			})
+			.state('createProfile',{
+			url:'/createprofile',
+			templateUrl:'app/profile/profile.ejs',
+			controller:'createprofile'
+			});
 			
 			
 		
