@@ -16,7 +16,7 @@ app.get('/',function(req,res){
 	res.sendFile(__dirname+'/index.html');
 });
 
-//authintication
+//authintication system
 
 app.post('/api/user/signup', authinticationController.signup);
 
