@@ -16,9 +16,11 @@ app.get('/',function(req,res){
 	res.sendFile(__dirname+'/index.html');
 });
 
-//authintication system
+
 
 app.post('/api/user/signup', authinticationController.signup);
+
+//authintication
 
 app.post('/api/user/login', authinticationController.login);
 
