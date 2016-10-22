@@ -1,6 +1,6 @@
 (function(){
 	angular.module('TimeWest',['ui.router']).config(['$urlRouterProvider','$stateProvider',function($urlRouterProvider,$stateProvider){
-		$urlRouterProvider.otherwise('/signup');
+		$urlRouterProvider.otherwise('/');
 		
 		$stateProvider.state('signUp',{
 			url:'/signup',
