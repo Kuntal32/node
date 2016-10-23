@@ -1,18 +1,9 @@
-var mongoose = require("mongoose");
-var passwordHash = require("password-hash");
+require('../../init/init.js');
 var User = require("../datasets/users");
-var express = require("express");
-var expressSession = require('express-session');
-var cookieParser = require('cookie-parser');
-var app=express();
-
-app.use(cookieParser());
-app.use(expressSession({secret: process.env.SESSION_SECRET || 'secret'}));
-
 
 module.exports.signup= function(req,res){
 			var password=passwordHash.generate(req.body.password);
-			var data={"email":req.body.email,"password":password};
+			var data={"email":req.body.email,"username":req.body.username,"password":password};
 			
 			var user = new User(data);
 			user.save();
@@ -33,8 +24,8 @@ module.exports.login = function (req,res){
 			if(passwordHash.verify(req.body.password,userData.password)==true){
 					res.cookie('email',req.body.email);
 					res.cookie('_id',userData._id);
-					//res.session.email=req.body.email;
 					var sendData={status:"auth",email:req.body.email,_id:userData._id};
+					req.session.user=result[0];
 					res.json(sendData);
 					
 				}else{

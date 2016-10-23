@@ -1,5 +1,5 @@
 (function(){
-	angular.module('TimeWest')
+	angular.module('app')
 			.controller('NavigationController',['$scope','$http','$state','$window',function($scope,$http,$state,$window){
 					
 					if(localStorage['User-Data']){
@@ -21,7 +21,7 @@
 						}else if(res.status=='auth'){
 						$scope.loggedIn=true;
 						localStorage.setItem('User-Data',JSON.stringify(res));
-						$window.location.href = '/user';
+						$window.location.href = '/user/home';
 						}
 						
 						}).error(function(error){

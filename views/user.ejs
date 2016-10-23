@@ -1,33 +1,61 @@
 <!doctype html>
-<html ng-app="TimeWest">
+<html ng-app="app">
 	<head>
-		<title><%=title %></title>
+	 <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	 <meta name="description" content="">
+    <meta name="author" content="">
+		<title>Social Hub <%=title %></title>
 		
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+        
 		<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
+		
+		<link href="../node_modules/bootstrap/dist/css/bootstrap.css" rel='stylesheet' type='text/css'>
+		<link href="../node_modules/bootstrap/dist/js/colorbox/colorbox.css"  rel='stylesheet' type='text/css'>
+        <link href="../node_modules/bootstrap/dist/css/templatemo_style.css"  rel='stylesheet' type='text/css'>
 <!-- Optional theme -->
-<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-<link rel="stylesheet" href="app/css/main.css"></link>
-<script src="node_modules/angular/angular.min.js"></script>
-	<script src="node_modules/angular/angular-ui-router.js"></script>
+<!--<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">-->
+<link rel="stylesheet" href="../app/css/main.css"></link>
+<script src="../node_modules/angular/angular.min.js"></script>
+	<script src="../node_modules/angular/angular-ui-router.js"></script>
 	
-	<script src="app/app.js"></script>
-	<script src="app/profile/create_profile.js"></script>
-	<script src="app/navigation/navigation-controller.js"></script>
+	<script src="../app/app.js"></script>
+	<script src="../app/signup/signupController.js"></script>
+	<script src="../app/navigation/navigation-controller.js"></script>
 </head>
-	<nav class="navbar navbar-default navbar-fixed-top" ng-controller="NavigationController">
-			  <div class="container">
-					<div >
-						<p>Hello, <%=user %></p>
-						<a ui-sref="createProfile">Create Profile</a>
-					</div>
-				
-			  </div>
-		</nav>
+
 	<body>
 		
-		<div ui-view></div>
+  <div class="container">		
+		<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" ui-sref="/home">Social Hub</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      
+     
+      <ul class="nav navbar-nav navbar-right">
+        <li ><a ui-sref="createProfile">Create Profile </a></li>
+		<li> <a href="/logout">Logout</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+</div>		
+		welcome <%=user.email %>
+		<div class="container" ui-view></div>
 	
 	</body>
 	
