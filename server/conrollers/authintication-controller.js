@@ -4,10 +4,22 @@ var User = require("../datasets/users");
 module.exports.signup= function(req,res){
 			var password=passwordHash.generate(req.body.password);
 			var data={"email":req.body.email,"username":req.body.username,"password":password};
+		User.find({"email":req.body.email},function(err,result){
+	
+			if(err){
+				console.log(err);
+			}	
 			
+			if(result && result.length===0){
 			var user = new User(data);
 			user.save();
 			res.json(req.body);
+			}else{
+				var resdata={"status":"email id already exists"};
+				res.json(resdata);
+			}
+			
+		});
 };
 
 module.exports.login = function (req,res){

@@ -11,9 +11,9 @@
 						controller:'SignupController'
 						})
 					.state('createProfile',{
-					url:'/createprofile',
-					templateUrl:'../app/profile/profile.ejs',
-					controller:'createprofile'
+						url:'/createprofile',
+						templateUrl:'../app/profile/profile.ejs',
+						controller:'createprofile'
 					}).state('/home',{
 						url:'/',
 						
