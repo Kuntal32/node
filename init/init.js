@@ -5,6 +5,11 @@ bodyParser = require("body-parser");
 cookieParser = require('cookie-parser');
 session = require('express-session');
 passwordHash = require("password-hash");
+multipart = require('connect-multiparty');
+fs = require('fs-extra');
+path = require('path');
+multipartMiddleware = multipart();
+
 app=express();
 
 app.set('view engine', 'ejs');

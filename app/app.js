@@ -1,7 +1,12 @@
 (function(){
-	angular.module('app',['ui.router']).config(['$urlRouterProvider','$stateProvider',function($urlRouterProvider,$stateProvider){
-		$urlRouterProvider.otherwise('/');
+	angular.module('app',['ui.router','ngFileUpload']).config(['$urlRouterProvider','$stateProvider',function($urlRouterProvider,$stateProvider){
 		
+		if(document.cookie.length===0){
+		$urlRouterProvider.otherwise('/');
+		}else{
+		
+		$urlRouterProvider.otherwise('/home');
+		}
 		$stateProvider.state('/',{
 						url:'/',
 						templateUrl:'app/login/login.ejs',
@@ -15,8 +20,8 @@
 						templateUrl:'../app/profile/profile.ejs',
 						controller:'createprofile'
 					}).state('/home',{
-						url:'/',
-						
+						url:'/home',
+						templateUrl:'../app/home/home.ejs',
 					
 					});
 			

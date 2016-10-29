@@ -1,5 +1,9 @@
 <div class="container ">
-
+		<div class="alert alert-danger" role="alert" ng-show="status">
+		 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		{{msg}}
+		</div>
+		
 		  <form class="form-signin" ng-controller="NavigationController">
 			<h2 class="form-signin-heading">Please sign in</h2>
 			<label for="inputEmail" class="sr-only">Email address</label>

@@ -20,6 +20,9 @@
 <link rel="stylesheet" href="../app/css/main.css"></link>
 <script src="../node_modules/angular/angular.min.js"></script>
 	<script src="../node_modules/angular/angular-ui-router.js"></script>
+	<script src="../node_modules/ng-file-upload/dist/ng-file-upload.js"></script>
+	<script src="../node_modules/ng-file-upload/dist/ng-file-upload-all.js"></script>
+	<script src="../node_modules/ng-file-upload/dist/ng-file-upload-shim.js"></script>
 	
 	<script src="../app/app.js"></script>
 	<script src="../app/profile/create_profile.js"></script>
@@ -54,7 +57,7 @@
   </div><!-- /.container-fluid -->
 </nav>
 </div>		
-		welcome <%=user.email %>
+		<%=user.email %>
 		<div class="container" ui-view></div>
 	
 	</body>
