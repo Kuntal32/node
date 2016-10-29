@@ -25,6 +25,7 @@ angular.module("app")
 						}).progress(function(event){
 						
 						}).success(function(data){
+						$scope.status_image=true;
 						$scope.image='http://localhost:3000'+data;
 						}).error(function(err){
 							console.log("err");

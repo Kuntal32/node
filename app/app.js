@@ -30,7 +30,15 @@
 					}).state('/home',{
 						url:'/home',
 						templateUrl:'../app/home/home.ejs',
-					
+						controller:'homeController',
+						resolve:{
+							users:['$http',function($http){
+								return $http.get('/api/getUsers').then(function(response){
+									return response.data;
+								})
+							}]
+
+						}
 					});
 			
 			
