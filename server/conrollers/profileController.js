@@ -25,12 +25,48 @@ module.exports.updateAvatar= function(req,res){
 					var user=userdata;
 					user.image=savePath;
 					user.save(function(err){
-						if(err)
+						if(err){
 						console.log("false");
+						}else{
+						res.json(savePath);
+						}
 					});
 				}
 			});
 		}
 	});
 	
+};
+
+module.exports.updateProfile=function(req,res){
+	User.findById(req.session.user._id,function(err,userdata){
+		if(err){
+			console.log(err);
+		}else{
+			//console.log(userdata);
+			var user=userdata;
+			user.username=req.body.username;
+			user.bio=req.body.bio;
+			user.save(function(err){
+						if(err){
+						console.log("false");
+						}else{
+							res.json(req.body);
+						}
+					});
+		}
+		//console.log(req.body);
+	});
+	
+
+};
+
+module.exports.getuserdata=function(req,res){
+		User.findById(req.session.user._id,function(err,userdata){
+			if(err){
+				console.log(err);
+			}else{
+				res.json(userdata);
+			}
+		});
 };

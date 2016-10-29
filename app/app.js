@@ -18,7 +18,15 @@
 					.state('createProfile',{
 						url:'/createprofile',
 						templateUrl:'../app/profile/profile.ejs',
-						controller:'createprofile'
+						controller:'createprofile',
+						resolve:{
+							user:['$http',function($http){
+								return $http.get('/api/getprofiledatta').then(function(response){
+									return response.data;
+								})
+							}]
+
+						}
 					}).state('/home',{
 						url:'/home',
 						templateUrl:'../app/home/home.ejs',

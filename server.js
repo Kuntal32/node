@@ -5,7 +5,7 @@ var profileController= require("./server/conrollers/profileController");
 
 app.use('/app',express.static(__dirname+'/app'));
 app.use('/node_modules',express.static(__dirname+'/node_modules'));
-
+app.use('/uploads',express.static(__dirname+'/uploads'));
 
 app.get('/',function(req,res){
 
@@ -43,8 +43,12 @@ app.post('/api/user/signup', authinticationController.signup);
 
 app.post('/api/user/login', authinticationController.login);
 
+app.get('/api/getprofiledatta',profileController.getuserdata);
+
 //edit profile
 app.post('/api/editprofile',multipartMiddleware, profileController.updateAvatar);
+
+app.post('/api/editprofiledata',profileController.updateProfile);
 
 app.listen(3000,function(){
 	console.log("running");
