@@ -8,6 +8,7 @@ passwordHash = require("password-hash");
 multipart = require('connect-multiparty');
 fs = require('fs-extra');
 path = require('path');
+client = require('socket.io').listen(8080).sockets;
 multipartMiddleware = multipart();
 
 app=express();

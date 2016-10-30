@@ -3,6 +3,7 @@ require(__dirname+'/init/init.js');
 var authinticationController = require("./server/conrollers/authintication-controller");
 var profileController= require("./server/conrollers/profileController");
 var chatController= require("./server/conrollers/chatController");
+var messageController= require("./server/conrollers/messageController");
 
 app.use('/app',express.static(__dirname+'/app'));
 app.use('/node_modules',express.static(__dirname+'/node_modules'));
@@ -21,8 +22,13 @@ app.get('/',function(req,res){
 
 app.get('/user/home',function(req,res){
 		if(req.session.user){
+			client.on('connection', function(socket) {
+			socket.on('input',function(data){
 			
-		
+				messageController.sendMessage(data);
+				client.emit('output',[data]);
+			});	
+		});
 		res.render('user',{user: req.session.user,title:"Home"});
 		}else{
 		res.redirect('/');
@@ -56,6 +62,8 @@ app.post('/api/editprofiledata',profileController.updateProfile);
 
 //get chat
 app.get('/api/getUsers',chatController.getUsers);
+
+app.post('/api/enterChatRoom',chatController.enterChatRoom);
 
 app.listen(3000,function(){
 	console.log("running");

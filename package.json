@@ -26,6 +26,7 @@
     "ng-file-upload": "^12.2.12",
     "password-hash": "^1.2.2",
     "path": "^0.12.7",
+    "socket.io": "^1.5.1",
     "socketio": "^1.0.0"
   }
 }
